@@ -1,0 +1,616 @@
+/* 🔶 Navbar Styles */
+.navbar {
+  background-color: #f58220;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1.2rem;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+}
+
+.navbar-left .menu-icon {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-right: 40px;
+  /* Move the button group left from the edge */
+}
+
+.navbar-right .btn {
+  background: #e8700e;
+  color: white;
+  border-radius: 2px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(255, 107, 0, 0.08);
+  padding: 0.2em 0.8em;
+  margin-right: 8px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.navbar-right a,
+.navbar-right button {
+  color: var(--color-navbar-text, #fff) !important;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-family: Cambria, serif;
+  text-decoration: none;
+}
+
+.navbar-right a:hover {
+  color: #111 !important;
+  text-decoration: none;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-title {
+  height: 50px;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Dark theme: Auction Verse header text should be black */
+.dark-theme .site-title {
+  color: #111 !important;
+}
+
+.logout-btn.red {
+  background-color: #e77314;
+  color: #fff !important;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 40px;
+}
+
+/* Dark theme: logout button text should be black */
+.dark-theme .logout-btn.red {
+  color: #111 !important;
+}
+
+.logout-btn:hover {
+  background-color: #c62828;
+}
+
+.nav-buttons .btn {
+  background-color: #E5751F;
+  color: #ffffff;
+  border: 2px solid #ecebea;
+  padding: 0.6rem 1.2rem;
+  margin-left: -30px;
+  margin-right: 40px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-buttons .btn:hover {
+  background-color: #ffffff;
+  border-color: #ffe3d1;
+  color: #E5751F;
+}
+
+.btn:hover {
+  background-color: #fc5400;
+}
+
+/* 🔸 Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar-left .menu-icon {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .navbar-center {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dark-theme .menu-icon {
+    color: #111 !important;
+  }
+}
+
+/* Sidebar Blur Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 998;
+  /* behind the sidebar */
+}
+
+/* 📱 Mobile Sidebar */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 260px;
+  height: 100vh;
+  background-color: #fff !important;
+  color: #222 !important;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  gap: 1rem;
+  z-index: 999;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.mobile-sidebar.open {
+  left: 0;
+}
+
+.mobile-sidebar a,
+.mobile-sidebar button {
+  color: white;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ❌ Close Button */
+.clos-btn {
+  background-color: #1bbd26;
+  border: none;
+  color: white;
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  top: 1.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
+.layout-content {
+  transition: filter 0.3s ease;
+  position: relative;
+  z-index: 1;
+  /* make sure it's under sidebar */
+}
+
+.layout-content.blurred {
+  filter: blur(5px);
+  pointer-events: none;
+  /* disable interactions when blurred */
+}
+
+
+/* 🔔 Logout Popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+}
+
+.popup-actions {
+  margin-top: 1rem;
+}
+
+.popup-actions .btn {
+  margin: 0 10px;
+}
+
+.popup-actions .confirm {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.popup-actions .cancel {
+  background-color: #bdc3c7;
+  color: black;
+}
+
+.farewell-text {
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.fade-out {
+  animation: fadeAway 3s forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeAway {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* 🔻 Footer */
+.footer {
+  background-color: #ffefe2 !important;
+  color: #333 !important;
+  padding: 20px;
+  text-align: center;
+  border-top: 2px solid #f5c16c;
+  margin-top: auto;
+}
+
+.footer h3 {
+  font-size: 1.5rem;
+  color: #f57c00 !important;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 0.95rem;
+}
+
+.footer-links a {
+  color: #f57c00 !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer .footer-links a {
+  color: #f57c00 !important;
+}
+
+.footer .social-icons a {
+  color: #f57c00 !important;
+}
+
+/* Make all footer text orange except copyright line */
+.footer .footer-content>*:not(p) {
+  color: #f57c00 !important;
+}
+
+.footer-links a:hover {
+  color: #d35400;
+}
+
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-icons a {
+  color: #f57c00 !important;
+  font-size: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #d35400;
+}
+
+/* 📱 Footer Mobile */
+@media (max-width: 600px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer {
+    padding: 1rem;
+  }
+}
+
+/* 💌 Pages: About, Contact, Help */
+.about-card,
+.contact-card,
+.help-card {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  /* border-radius: ; */
+  box-shadow: 0 6px 32px rgba(255, 107, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-header,
+.contact-header,
+.help-header {
+  background: #ffe3c1;
+  padding: 28px 0 10px 0;
+  text-align: center;
+}
+
+.about-header h2,
+.contact-header h2,
+.help-header h2 {
+  color: var(--color-secondary) !important;
+}
+
+.contact-subtitle {
+  color: #ff9800;
+  font-size: 16px;
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+.contact-divider,
+.about-divider,
+.help-divider {
+  height: 3px;
+  width: 60px;
+  background: linear-gradient(90deg, #ff9800, #ff6b00);
+  border-radius: 2px;
+  margin: 0 auto 0.5rem auto;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 36px 28px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1.5px solid #ffd4b3;
+  background: #fffaf3;
+  font-size: 16px;
+}
+
+.contact-form button {
+  background: linear-gradient(90deg, #ff9800, #ff6b00);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.contact-form button:hover {
+  background: linear-gradient(90deg, #ffb347, #ff9800);
+}
+
+.contact-success {
+  color: #1bbd26;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* 📌 Misc */
+main {
+  padding-top: 80px;
+}
+
+.navbar,
+.popup-box,
+.popup-overlay,
+.about-card,
+.contact-card {
+  background: var(--color-bg-card) !important;
+  color: var(--color-text) !important;
+}
+
+.navbar a,
+.footer a,
+.navbar button,
+.footer button {
+  color: var(--color-text) !important;
+}
+
+/* Remove dark-theme .navbar and .footer overrides so header and footer keep their light theme color in dark mode */
+/* .dark-theme .navbar {
+  background-color: var(--color-bg-card) !important;
+  color: var(--color-text) !important;
+}
+
+.dark-theme .footer {
+  background-color: var(--color-bg-card) !important;
+  color: var(--color-text) !important;
+} */
+
+.navbar {
+  background-color: #f57c1f !important;
+  color: white !important;
+}
+
+.about-card,
+.contact-card,
+.help-card {
+  background: var(--color-bg-card) !important;
+  color: var(--color-text) !important;
+}
+
+.dark-theme .about-card,
+.dark-theme .contact-card,
+.dark-theme .help-card {
+  background: var(--color-bg-card) !important;
+  color: var(--color-text) !important;
+}
+
+.about-header,
+.contact-header,
+.help-header {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+.dark-theme .about-header,
+.dark-theme .contact-header,
+.dark-theme .help-header {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+.about-content,
+.help-content,
+.contact-content {
+  color: var(--color-text) !important;
+}
+
+.about-content {
+  padding-left: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: var(--color-bg-card) !important;
+  color: var(--color-text) !important;
+}
+
+.dark-theme .contact-form input,
+.dark-theme .contact-form textarea {
+  background: var(--color-bg-card) !important;
+  color: var(--color-text) !important;
+}
+
+.footer,
+.footer a,
+.footer p,
+.footer h3,
+.footer-links a {
+  color: #222 !important;
+}
+
+.navbar,
+.navbar-right a,
+.navbar-right .active {
+  /* Remove color: white !important; and set color using CSS variable */
+  color: var(--color-navbar-text, white) !important;
+}
+
+/* Light theme: navbar text should be white */
+:root {
+  --color-navbar-text: #fff;
+}
+
+/* Dark theme: navbar text should be black */
+.dark-theme {
+  --color-navbar-text: #111;
+}
+
+/* Ensure .navbar-right .active is also using the variable */
+.navbar-right .active {
+  color: var(--color-navbar-text, #fff) !important;
+}
+
+.dark-theme .navbar-right .active {
+  color: var(--color-navbar-text, #111) !important;
+}
+
+.dark-theme .navbar-right a:hover {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.mobile-sidebar {
+  background-color: #fff !important;
+  color: #222 !important;
+}
+
+.dark-theme .mobile-sidebar {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+.back-btn {
+  background: var(--color-secondary) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.back-btn svg,
+.back-btn i,
+.back-btn span {
+  color: #fff !important;
+}
+
+.dark-theme .back-btn {
+  background: var(--color-secondary) !important;
+  color: #111 !important;
+}
+
+.dark-theme .back-btn svg,
+.dark-theme .back-btn i,
+.dark-theme .back-btn span {
+  color: #111 !important;
+}
+
+.about-header,
+.contact-header,
+.help-header {
+  background: rgba(255, 153, 0, 0.08) !important;
+  /* border-radius: 0 0 24px 24px !important; */
+  padding-bottom: 1.5rem !important;
+}
