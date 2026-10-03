@@ -1,0 +1,11 @@
+Flask
+Flask-CORS
+pymongo
+python-dotenv
+dnspython
+Flask-JWT-Extended
+bcrypt
+Werkzeug
+APScheduler
+razorpay
+gunicorn
