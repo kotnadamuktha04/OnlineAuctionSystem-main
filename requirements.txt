@@ -1,0 +1,14 @@
+   flask
+   flask-cors
+   pymongo
+   dnspython
+   tzdata
+   flask-mail
+   python-dotenv
+   flask-jwt-extended
+   bcrypt
+   werkzeug
+   APScheduler
+   razorpay
+   setuptools
+   gunicorn
